@@ -1,13 +1,18 @@
 import * as React from "react"
+import PropTypes from 'prop-types';
+import { Layout } from '@components';
 
-// markup
-const IndexPage = () => {
-  return (
-    <main>
-      <title>Home Page</title>
-      <h1>Hello</h1>
-    </main>
-  )
-}
+
+
+const IndexPage = ({ location }) => (
+  <Layout location={location}>
+    
+  </Layout>
+);
+
+
+IndexPage.propTypes = {
+  location: PropTypes.object.isRequired,
+};
 
 export default IndexPage
