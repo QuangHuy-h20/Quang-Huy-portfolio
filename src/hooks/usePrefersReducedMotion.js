@@ -1,5 +1,6 @@
-//https://www.joshwcomeau.com/snippets/react-hooks/use-prefers-reduced-motion/
+import { useState, useEffect } from 'react';
 
+//https://www.joshwcomeau.com/snippets/react-hooks/use-prefers-reduced-motion/
 const QUERY = '(prefers-reduced-motion: no-preference)';
 const isRenderingOnServer = typeof window === 'undefined';
 const getInitialState = () => {
@@ -10,10 +11,10 @@ const getInitialState = () => {
     return isRenderingOnServer ? true : !window.matchMedia(QUERY).matches;
 };
 function usePrefersReducedMotion() {
-    const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(
         getInitialState
     );
-    React.useEffect(() => {
+    useEffect(() => {
         const mediaQueryList = window.matchMedia(QUERY);
         const listener = (event) => {
             setPrefersReducedMotion(!event.matches);
