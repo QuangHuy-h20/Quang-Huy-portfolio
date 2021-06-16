@@ -1,25 +1,37 @@
+const config = require('./src/config');
 module.exports = {
   siteMetadata: {
-    title: "Quang Huy Pham",
-    titleTemplate: "%s · The Real Hero",
+    title: "Quang Huy",
     description:
-      "Hogwarts Potions master, Head of Slytherin house and former Death Eater.",
-    url: "https://www.facebook.com/qg.huy0910/", // No trailing slash allowed!
-    image: "/images/snape.jpg", // Path to your image you placed in the 'static' folder
+      "Quang Huy is a front-end web developer who specializes in building and designing UI/UX website.",
+    siteUrl: "https://www.facebook.com/qg.huy0910/", // No trailing slash allowed!
+    image: '/og.png', // Path to your image you placed in the 'static' folder
   },
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        icon: "src/images/icon.png",
-      },
-    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-offline",
+    {
+      //https://www.gatsbyjs.com/docs/how-to/performance/add-a-manifest-file/#using-gatsby-plugin-manifest
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Quang Huy",
+        short_name: "QuangHuy",
+        start_url: "/",
+        background_color: config.color.darkGray,
+        theme_color: config.color.dark,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: "minimal-ui",
+        icon: "src/images/icon.png", // This path is relative to the root of the site.
+        // An optional attribute which provides support for CORS check.
+        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+        // Any invalid keyword or empty string defaults to `anonymous`
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -42,7 +54,7 @@ module.exports = {
             // https://www.gatsbyjs.com/plugins/gatsby-remark-external-links/
             resolve: "gatsby-remark-external-links",
             options: {
-              target: "_self",
+              target: "_blank",
               rel: "nofollow"
             }
           },
