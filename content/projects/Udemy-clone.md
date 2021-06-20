@@ -1,6 +1,6 @@
 ---
 date: '2021-07-08'
-title: 'Udemy clone website'
+title: 'Udemy (clone)'
 github: 'https://github.com/QuangHuy-h20/Final-Udemy-clone'
 external: 'https://udemy-clone.vercel.app/'
 tech:
@@ -9,4 +9,4 @@ tech:
     - Elearning API
 ---
 
-My clone Udemy website I built to get more UI/UX experiences with React library, call API and handle datas from Back-end.
+My clone Udemy website I built to learned more about UI/UX experiences with React, call API and handle data from Back-end.

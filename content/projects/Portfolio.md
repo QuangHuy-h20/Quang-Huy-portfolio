@@ -1,12 +1,12 @@
 ---
-date: '2021-07-08'
-title: 'Personal website portfolio'
+date: '2021-08-01'
+title: 'Personal website'
 github: 'https://github.com/QuangHuy-h20/Quang-Huy-portfolio'
 external: ''
 tech:
     - Gatsby.js
     - Styled-components
-    - Anime.js
+    - Graphql
 ---
 
- My personal website I designed and built after I had a quite of certain knowledge about React as well as effort to avoid using UI frameworks like Bootstrap, Material-UI.
+I decided to design and build the portfolio after acquiring specific knowledge about React and effort to avoid using UI frameworks like Bootstrap, Material-UI.

@@ -1,6 +1,6 @@
 ---
 date: '2021-02-28' 
-title: 'Ford clone website'
+title: 'Ford (clone)'
 github: 'https://github.com/QuangHuy-h20/Middle-Ford-clone'
 external: 'https://ford-clone.vercel.app/'
 tech:
@@ -8,4 +8,4 @@ tech:
     - Bootstrap
 ---
 
-My clone Ford website I designed to learned about more UI experiences with HTML, SCSS and hosted in Vercel.
+My clone Ford website I designed to learned about more UI experiences with HTML, SCSS, and hosted in Vercel.
