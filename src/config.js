@@ -1,6 +1,7 @@
 module.exports = {
 
-    socialMedia: [
+    email: 'quanghuy/h20@gmail.com',
+    social: [
         {
             name: 'Github',
             url: 'https://github.com/QuangHuy-h20',
@@ -34,8 +35,8 @@ module.exports = {
             url: '/#education'
         },
         {
-            name: 'Work',
-            url: '/#projects'
+            name: 'Portfolio',
+            url: '/#portfolio'
         },
         {
             name: 'Contact',
@@ -43,18 +44,18 @@ module.exports = {
         },
     ],
     color: {
-        darkGray: '#36393B',
-        dark: '#202224',
+        dark: '#36393B',
+        orange: '#EF9974',
     },
-    srConfig: (delay = 200, viewFactor = 0.25) => ({
-        origin: 'bottom',
-        distance: '20px',
+    srConfig: (orientation = '', delay = 300, viewFactor = 0.25) => ({
+        origin: orientation,
+        distance: '30px',
         duration: 500,
         delay,
         rotate: { x: 0, y: 0, z: 0 },
         opacity: 0,
         scale: 1,
-        easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+        easing: 'cubic-bezier(.6,.25,.55,1)',
         mobile: true,
         reset: false,
         useDelay: 'always',
