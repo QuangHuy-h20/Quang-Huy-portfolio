@@ -34,7 +34,6 @@ const GlobalStyle = createGlobalStyle`
     header,
     menu,
     nav,
-    section,
     time{
       margin: 0;
       padding: 0;
@@ -46,6 +45,11 @@ const GlobalStyle = createGlobalStyle`
     html {
       box-sizing: border-box;
       width: 100%;
+    }
+
+    section{
+      margin: 0 auto;
+      max-width:1300px;
     }
     
     *,
@@ -61,7 +65,11 @@ const GlobalStyle = createGlobalStyle`
       font-size: var(--fs-xs);
       color: var(--white);
       text-decoration:none;
-      transition: all 0.2s var(--transition);
+      transition: var(--transition);
+    }
+    h1,h2,h3,h4,h4,h6,p, span{
+      color:#fff;
+      font-weight:300;
     }
 
       /*https://css-tricks.com/custom-scrollbars-in-webkit/ */
@@ -71,26 +79,37 @@ const GlobalStyle = createGlobalStyle`
       scrollbar-width: thin;
       scrollbar-color: var(--orange) var(--dark-gray);
       }
+
       body::-webkit-scrollbar {
         width: 12px;
       }
+
       body::-webkit-scrollbar-track {
         background: var(--dark-gray);
       }
+      
       body::-webkit-scrollbar-thumb {
         background-color: var(--orange);
         border: 3px solid var(--dark-gray);
         border-radius: 10px;
       }
 
+      html,
       body {
-        margin: 0;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0px;
         width: 100%;
         min-height: 100%;
         overflow-x: hidden;
         background: var(--dark);
         font-family: var(--font-poppins);
-        line-height: 1.3;
+        line-height: 1.34;
+        overflow-x: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
       }
       #root {
         min-height: 100vh;
@@ -115,6 +134,47 @@ const GlobalStyle = createGlobalStyle`
         @media (max-width: 480px) {
           padding: 125px 25px;
         }
+        &.fill {
+          padding: 0 150px;
+          @media (max-width: 1080px) {
+            padding: 0 100px;
+          }
+          @media (max-width: 768px) {
+            padding: 0 50px;
+          }
+          @media (max-width: 480px) {
+            padding: 0 25px;
+          }
+        }
+        section {
+          margin: 0 auto;
+          padding: 100px 0;
+          max-width: 1000px;
+      
+          @media (max-width: 768px) {
+            padding: 80px 0;
+          }
+      
+          @media (max-width: 480px) {
+            padding: 60px 0;
+          }
+        }
+        .heading{
+          display:block;
+          text-align:${props => props.primary ? 'center' : ''};
+          position:relative;
+          margin-bottom:80px;
+          font-size: var(--fs-heading);
+          &:before{
+              content:"";
+              position:absolute;
+              bottom:-20%;
+              left:0;
+              width:300px;
+              height:2px;
+              background:#EF9974;
+          }
+      }
       }
       
       ${TransitionStyles};
