@@ -1,14 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import { Head, Header } from '@components';
+import { Head, Header, Footer, Social } from '@components';
 import { GlobalStyle, theme } from '@styles';
 
-
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
     // eslint-disable-next-line global-require
-    require('smooth-scroll')('a[href*="#"]');
+    require("smooth-scroll")('a[href*="#"]', {
+        speed: 2000,
+        speedAsDuration: true,
+    })
 }
+
+const StyledLayout = styled.div`
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+`
 
 const Layout = ({ children, location }) => {
     const isHome = location.pathname === '/';
@@ -20,10 +28,14 @@ const Layout = ({ children, location }) => {
             <div id="root">
                 <ThemeProvider theme={theme}>
                     <GlobalStyle />
-                    <Header isHome={isHome}/>
-                    <div id="content">
-                        {children}
-                    </div>
+                    <StyledLayout>
+                        <Header isHome={isHome} />
+                        <Social isHome={isHome} />
+                        <div id="content">
+                            {children}
+                            <Footer />
+                        </div>
+                    </StyledLayout>
                 </ThemeProvider>
             </div>
         </>

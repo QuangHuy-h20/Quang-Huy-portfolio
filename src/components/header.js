@@ -13,7 +13,16 @@ const StyledHeader = styled.header`
     height: var(--nav-height);
     padding: 0 50px;
     width:100%;
-
+    position:fixed;
+    top:0;
+    z-index:99;
+    filter: none !important;
+    pointer-events: auto !important;
+    user-select: auto !important;
+    background-color:rgba(32, 34,36, .55)!important;
+    backdrop-filter: blur(15px);
+    transition: var(--transition);
+    
     @media (prefers-reduced-motion: no-preference) {
       ${props =>
     props.scrollDirection === 'up' &&
@@ -21,8 +30,8 @@ const StyledHeader = styled.header`
     css`
           height: var(--nav-scroll-height);
           transform: translateY(0px);
-          background-color: rgba(10, 25, 47, 0.85);
-          
+          background-color: #202224;
+          box-shadow:0px 10px 6px -5px rgb(13 15 19 / 75%);
         `};
   
       ${props =>
@@ -31,7 +40,7 @@ const StyledHeader = styled.header`
     css`
           height: var(--nav-scroll-height);
           transform: translateY(calc(var(--nav-scroll-height) * -1));
-          
+          box-shadow:0 -1px 6px -5px rgb(13 15 19 / 75%);
         `};
     }
 `
@@ -52,7 +61,7 @@ const StyledMenu = styled.div`
             padding: 10px 25px;
             a{
               letter-spacing:.5px;
-              font-size: var(--fs-xs);
+              font-size: var(--fs-sm);
               font-weight:300;
               &:hover{
                 color: var(--light-orange);
@@ -65,6 +74,9 @@ const StyledMenu = styled.div`
       border:1px solid var(--orange);
       border-radius: var(--border-radius);
       margin-left:25px;
+      &:hover{
+          color: var(--light-orange);
+      }
     }
 `
 
@@ -97,15 +109,16 @@ const Header = ({ isHome }) => {
   }, []);
 
   const timeout = isHome ? loaderDelay : 0;
-  const fadeClass = isHome ? 'fade' : '';
-  const fadeDownClass = isHome ? 'fadedown' : '';
+  const fade = isHome ? 'fade' : '';
+  const fadeDown = isHome ? 'fadedown' : '';
+  
 
   const Logo = (
     <div className="logo" tabIndex="-1">
       {isHome ? (
-        <a href="/">
+        <Link to="/">
           <LogoIcon />
-        </a>
+        </Link>
       ) : (
         <Link to="/">
           <LogoIcon />
@@ -139,7 +152,7 @@ const Header = ({ isHome }) => {
           <>
             <TransitionGroup component={null}>
               {isMounted && (
-                <CSSTransition classNames={fadeClass} timeout={timeout}>
+                <CSSTransition classNames={fade} timeout={timeout}>
                   <>{Logo}</>
                 </CSSTransition>
               )}
@@ -151,7 +164,7 @@ const Header = ({ isHome }) => {
                   {isMounted &&
                     navLinks &&
                     navLinks.map(({ url, name }, i) => (
-                      <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
+                      <CSSTransition key={i} classNames={fadeDown} timeout={timeout}>
                         <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
                           <Link to={url}>{name}</Link>
                         </li>
@@ -162,7 +175,7 @@ const Header = ({ isHome }) => {
 
               <TransitionGroup component={null}>
                 {isMounted && (
-                  <CSSTransition classNames={fadeDownClass} timeout={timeout}>
+                  <CSSTransition classNames={fadeDown} timeout={timeout}>
                     <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
                       {Resume}
                     </div>
