@@ -1,9 +1,10 @@
 const config = require('./src/config');
+
 module.exports = {
   siteMetadata: {
     title: "Quang Huy",
     description:
-      "Quang Huy is a front-end web developer who specializes in building and designing UI/UX website.",
+      "Quang Huy is a front-end web developer who specializes in building UI/UX website.",
     siteUrl: "https://www.facebook.com/qg.huy0910/", // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
   },
@@ -21,12 +22,13 @@ module.exports = {
         name: "Quang Huy",
         short_name: "QuangHuy",
         start_url: "/",
-        background_color: config.color.darkGray,
-        theme_color: config.color.dark,
+        background_color: config.color.dark,
+        theme_color: config.color.orange,
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "minimal-ui",
-        icon: "src/images/icon.png", // This path is relative to the root of the site.
+        icon: "src/images/logo_1.png", // This path is relative to the root of the site.
+        
         // An optional attribute which provides support for CORS check.
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.
         // Any invalid keyword or empty string defaults to `anonymous`
