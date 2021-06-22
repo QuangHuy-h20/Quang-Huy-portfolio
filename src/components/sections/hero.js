@@ -8,32 +8,40 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { usePrefersReducedMotion } from '@hooks'
 import { navDelay, loaderDelay, contentDelay } from '@utils';
 
+// ${({ theme }) => theme.mixins.flexCenter};
+
 const StyledHero = styled.section`
     ${({ theme }) => theme.mixins.flexCenter};
     padding: 0;
-    max-width:1400px;
+    max-width:1200px;
     flex-direction:column;
     .heroContent{
-      ${({ theme }) => theme.mixins.flexCenter};
+      display:grid;
+      grid-template-columns:3fr 2fr;
       width:100%;
       min-height:100vh;
+      
+      @media screen and (max-width:1200px){
+        margin-top:200px;
+        grid-template-columns:1fr;
+        min-height:50vh;
+      }
+
+      @media screen and (max-width:768px){
+        margin-top:150px;
+      }
+
       .left{
         ${({ theme }) => theme.mixins.flexCenter};
-      align-items:flex-start;
-      flex-direction: column;
-        height:85vh;
+        align-items:flex-start;
+        flex-direction: column;
+
         .item{
             padding: 8px 0;
         }
-        div:last-child{
-                margin-top: 70px;
-                a{
-                    ${({ theme }) => theme.mixins.contactButton};
-                }
-            }
-        }
+        
         p{
-            font-size: var(--fs-md);
+            font-size: clamp(var(--fs-sm), 8vw, var(--fs-md));
             margin-left:3px;
         }
         h1{
@@ -41,7 +49,7 @@ const StyledHero = styled.section`
             font-weight:400;
         }
         h2{
-            font-size: 58px;
+            font-size: clamp(20px, 10vw, 58px);
             color: var(--light-orange);
         }
         h3{
@@ -51,27 +59,21 @@ const StyledHero = styled.section`
             color: var(--gray);
             font-weight:300;
         }
+
+        div:last-child{
+          margin-top: 70px;
+          a{
+              ${({ theme }) => theme.mixins.contactButton};
+          }
+          @media screen and (max-width:768px){
+            margin:60px 0;
+          }
+      }
+  }
     }
     .right{   
       ${({ theme }) => theme.mixins.flexCenter};
       flex-direction: column;
-      margin-left: 40px;
-      height:85vh;
-       .gatsby-image-wrapper {    
-          position:absolute;
-          top: -27%;
-          left: -15%;
-            z-index:10;
-            div:nth-child(2){
-                background-color:transparent !important;
-                transition:none !important;
-            }
-            img{
-                height:550px;
-                width:500px;
-            }
-        }
-    }
     }
 `
 
@@ -123,7 +125,7 @@ const Hero = () => {
             </div>
             <div className="right">
               <StyledLottie>
-                <Lottie options={defaultOptions} height={450} width={450} />
+                <Lottie className="lottie" options={defaultOptions} height={450} width={450} />
               </StyledLottie>
             </div>
           </>
@@ -143,7 +145,7 @@ const Hero = () => {
                 {isMounted &&
                   <CSSTransition classNames="fade" timeout={contentDelay}>
                     <StyledLottie style={{ transitionDelay: `${russia.length * 100}ms` }}>
-                      <Lottie options={defaultOptions} height={450} width={450} />
+                      <Lottie className="lottie" options={defaultOptions} />
                     </StyledLottie>
                   </CSSTransition>
                 }

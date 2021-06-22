@@ -1,60 +1,74 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components'
-import sr from '@utils/sr'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { usePrefersReducedMotion } from '@hooks'
+import { EducationIcon, Calendar, Code } from '@components/icons'
 import { srConfig } from '@config'
-import { EducationIcon, Calendar } from '@components/icons'
+import sr from '@utils/sr'
 
 const StyledEducation = styled.section`
-    opacity:1;
-    .logo{
-        ${({ theme }) => theme.mixins.flexCenter};
-        margin-bottom: 30px;
+`
+
+const StyledEduGrid = styled.ul`
+    margin-top:100px;
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-gap:30px;   
+    @media screen and (max-width:1100px){
+        grid-template-columns:repeat(2, 1fr);
     }
-    .timeline{
-        display: grid;
-        grid-template-columns:1fr max-content 1fr;
-        column-gap:60px;
-        height:400px;
-    }
-    .wrapper{
-        height:100px;
-        width:100%;
-        h2{
-            font-size: var(--fs-xl);
-            margin-bottom: 8px;
-        }
-        h3{
-            color: var(--gray);
-            margin-bottom: 6px;
-        }
-        
-        span{
-            color: var(--gray);
-            margin-left:7px;
-        }
-    }
-    .left{
-        text-align:right;
+    @media screen and (max-width:768px){
+        margin:0 auto;
+        grid-template-columns:1fr;
+        max-width:400px;
     }
     
-    .circle{
-        display:inline-block;
-        width: 15px;
-        height:15px;
-        border-radius:50%;
-        background:var(--orange);
-    }
-    .second{
-        max-width:300px;
-    }
-    .line{
-        display:block;
-        width:3px;
+`
+
+const StyledEduItem = styled.li`
+    .inner{
+        padding: 28px 30px;
         height:100%;
-        background:var(--orange);
-        transform: translate(6px, -7px);
+        background: rgba(38, 40, 41, .85);
+        box-shadow: 8px 9px 14px 0 rgba(0, 0,0, .43);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur( 10px);
+        border-radius: 5px;
+        border: 1px solid rgba(37, 37, 37, .26);
+        display:flex;
+        justify-content:space-between;
+        flex-direction: column;
+        cursor:pointer;
+        transition: var(--transition);
+
+        &:hover{
+            transform: translateY(-10px);
+        }
+        .top{
+            margin-bottom:20px;
+        }
+     
+        .middle{
+             h2{
+                 font-size: var(--fs-xl);
+                 margin-bottom:12px;
+             }
+             h3,p{
+                 color:var(--gray);
+                 font-size: 17px;
+                 margin-bottom:10px; 
+             }
+             
+         }
+         span{
+            font-size:var(--fs-sm);
+            color:var(--gray);
+            svg{
+                margin-right:5px;
+            }
+        }
     }
+    
 `
 
 const Education = () => {
@@ -74,17 +88,48 @@ const Education = () => {
     return (
         <StyledEducation id="education" ref={revealContainer}>
             <h2 className="heading">Education</h2>
-            <div className="logo">
-                <EducationIcon />
+            <StyledEduGrid>
+                <StyledEduItem>
+                    <div className="inner">
+                        <div className="top"><EducationIcon /></div>
+                        <div className="middle">
+                            <h2>Software Engineering</h2>
+                            <h3>Hutech university</h3>
+                            <p>GPA: 3.2/4.0</p>
+                        </div>
+                        <span><Calendar /> 09/2018 - present</span>
+                    </div>
+                </StyledEduItem>
+
+                <StyledEduItem>
+                    <div className="inner">
+                        <div className="top"><Code /></div>
+                        <div className="middle">
+                            <h2>Thinking in programming problems - solving and OOP</h2>
+                            <h3>Cybersoft - CyberLearn</h3>
+                        </div>
+                        <span><Calendar />06/2020  - 07/2020</span>
+                    </div>
+                </StyledEduItem>
+
+                <StyledEduItem>
+                    <div className="inner">
+                        <div className="top"><Code /></div>
+                        <div className="middle">
+                            <h2>Front-end Foundation</h2>
+                            <h3>Cybersoft academy</h3>
+                        </div>
+                        <span><Calendar />12/2020  - 07/2021</span>
+                    </div>
+
+                </StyledEduItem>
+            </StyledEduGrid>
+            {/* <div className="logo">
             </div>
             <div className="timeline">
 
                 <div class="wrapper left">
-                    <div>
-                        <h2>Software Engineering</h2>
-                        <h3>Hutech university</h3>
-                        <p> <Calendar /><span>9/2018 - present</span></p>
-                    </div>
+                    
                 </div>
                 <div>
                     <div className="circle"></div>
@@ -99,24 +144,15 @@ const Education = () => {
                     <div className="circle"></div>
                     <div className="line"></div>
                 </div>
-                <div class="wrapper">
-                    <h2 className="second">Thinking in programming problems - solving and OOP</h2>
-                    <h3>Cybersoft - CyberLearn</h3>
-                    <p> <Calendar /><span>08/2020  - 10/2020</span></p>
-                </div>
+                
                 <div class="wrapper left">
-                    <div>
-                        <h2>Front-end Foundation</h2>
-                        <h3>Cybersoft academy</h3>
-                        <p> <Calendar /><span>12/2020  - 7/2021</span></p>
-                    </div>
+                    
                 </div>
-                <div>
-                    <div className="circle"></div>
-                    <div className="line"></div>
-                </div>
-                <div></div>
-            </div>
+
+                <div className="circle"></div>
+
+
+            </div> */}
 
         </StyledEducation>
     )

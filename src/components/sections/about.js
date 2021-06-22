@@ -8,10 +8,16 @@ import { srConfig } from '@config'
 
 
 const StyledAbout = styled.section`
+
     .wrapper{
         display:grid;
         grid-template-columns: 3fr 2fr;
         grid-gap: 80px;
+
+        @media screen and (max-width:1100px){
+            grid-template-columns:1fr;
+            grid-gap:40px;
+        }
     }
 
 `
@@ -50,6 +56,10 @@ const StyledContent = styled.div`
 const StyledImage = styled.div`
     width:300px;
     height:300px;
+    @media screen and (max-width:1100px){
+        margin: 0 auto;
+        grid-area: 1/1;
+    }
 `
 
 const About = () => {
