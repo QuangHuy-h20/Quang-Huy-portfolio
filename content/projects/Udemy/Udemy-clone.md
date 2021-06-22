@@ -1,11 +1,12 @@
 ---
 date: '2021-07-08'
 title: 'Udemy (clone)'
+image: './Udemy.png'
 github: 'https://github.com/QuangHuy-h20/Final-Udemy-clone'
 external: 'https://udemy-clone.vercel.app/'
 tech:
     - React
-    - Styled-components, Material-UI
+    - Styled-components/ Material-UI
     - Elearning API
 ---
 

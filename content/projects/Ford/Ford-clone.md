@@ -1,10 +1,11 @@
 ---
 date: '2021-02-28' 
 title: 'Ford (clone)'
+image: './Ford.png'
 github: 'https://github.com/QuangHuy-h20/Middle-Ford-clone'
 external: 'https://ford-clone.vercel.app/'
 tech:
-    - HTML, SCSS
+    - HTML/ SCSS
     - Bootstrap
 ---
 
