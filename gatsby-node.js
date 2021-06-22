@@ -1,5 +1,6 @@
 const path = require("path");
 const _ = require("lodash");
+
 //Doc: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#onCreateWebpackConfig
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

@@ -28,7 +28,7 @@ module.exports = {
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "minimal-ui",
         icon: "src/images/logo_1.png", // This path is relative to the root of the site.
-        
+
         // An optional attribute which provides support for CORS check.
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.
         // Any invalid keyword or empty string defaults to `anonymous`
@@ -53,12 +53,15 @@ module.exports = {
       options: {
         plugins: [
           {
-            // https://www.gatsbyjs.com/plugins/gatsby-remark-external-links/
-            resolve: "gatsby-remark-external-links",
+            resolve: `gatsby-remark-images`,
             options: {
-              target: "_blank",
-              rel: "nofollow"
-            }
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 700,
+              linkImagesToOriginal: true,
+              quality: 90,
+            },
           },
           {
             // https://www.gatsbyjs.org/packages/gatsby-remark-code-titles/

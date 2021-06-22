@@ -47,10 +47,10 @@ module.exports = {
         dark: '#36393B',
         orange: '#EF9974',
     },
-    srConfig: (orientation = '', delay = 300, viewFactor = 0.25) => ({
+    srConfig: (orientation = '', delay = 200, viewFactor = 0.25) => ({
         origin: orientation,
         distance: '30px',
-        duration: 500,
+        duration: 400,
         delay,
         rotate: { x: 0, y: 0, z: 0 },
         opacity: 0,
