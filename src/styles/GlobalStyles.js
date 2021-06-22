@@ -110,6 +110,25 @@ const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+
+        &.hidden {
+          overflow: hidden;
+        }
+    
+        &.blur {
+          overflow: hidden;
+    
+          header {
+            background-color: transparent;
+          }
+    
+          #content > * {
+            filter: blur(5px) brightness(0.7);
+            transition: var(--transition);
+            pointer-events: none;
+            user-select: none;
+          }
+        }
       }
       #root {
         min-height: 100vh;
@@ -137,7 +156,7 @@ const GlobalStyle = createGlobalStyle`
         &.fill {
           padding: 0 150px;
           @media (max-width: 1080px) {
-            padding: 0 100px;
+            padding: 0 125px;
           }
           @media (max-width: 768px) {
             padding: 0 50px;
@@ -161,7 +180,6 @@ const GlobalStyle = createGlobalStyle`
         }
         .heading{
           display:block;
-          text-align:${props => props.primary ? 'center' : ''};
           position:relative;
           margin-bottom:80px;
           font-size: var(--fs-heading);

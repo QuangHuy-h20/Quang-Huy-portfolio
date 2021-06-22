@@ -15,7 +15,6 @@ const mixins = {
     
     contactButton: css`
       color: #fff;
-      margin-top:40px;
       padding: 16px 40px;
       font-size: var(--fs-md);
       background: var(--orange);
