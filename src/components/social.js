@@ -12,7 +12,8 @@ ${({ theme }) => theme.mixins.flexCenter}
     width: 40px;
     position: fixed;
     top: 34%;
-    left:85px;    
+    left:85px;
+    
     li{
         width: 25px;
         padding: 15px 0;
@@ -24,6 +25,13 @@ ${({ theme }) => theme.mixins.flexCenter}
     svg{
         width:22px;
         height:22px;
+    }
+
+    @media screen and (max-width:1400px){
+        left:40px;
+    }
+    @media screen and (max-width:1200px){
+        top:26%;
     }
 
     @media screen and (max-width:768px){
