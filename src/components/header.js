@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled, { css } from 'styled-components'
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
+import { Menu } from '@components'
 import { LogoIcon } from '@components/icons'
 import { navLinks } from '@config'
 import { loaderDelay } from '@utils'
@@ -43,6 +44,15 @@ const StyledHeader = styled.header`
           box-shadow:0 -1px 6px -5px rgb(13 15 19 / 75%);
         `};
     }
+
+    @media screen and (max-width:1100px){
+      padding:0 40px;
+    }
+
+    @media screen and (max-width:768px){
+      padding: 0 20px;
+    }
+
 `
 
 const StyledNavbar = styled.nav`
@@ -78,6 +88,10 @@ const StyledMenu = styled.div`
           color: var(--light-orange);
       }
     }
+
+    @media screen and (max-width:768px){
+      display:none;
+    }
 `
 
 const Header = ({ isHome }) => {
@@ -111,7 +125,7 @@ const Header = ({ isHome }) => {
   const timeout = isHome ? loaderDelay : 0;
   const fade = isHome ? 'fade' : '';
   const fadeDown = isHome ? 'fadedown' : '';
-  
+
 
   const Logo = (
     <div className="logo" tabIndex="-1">
@@ -147,6 +161,7 @@ const Header = ({ isHome }) => {
               </ul>
               <div>{Resume}</div>
             </StyledMenu>
+            <Menu />
           </>
         ) : (
           <>
@@ -183,6 +198,13 @@ const Header = ({ isHome }) => {
                 )}
               </TransitionGroup>
             </StyledMenu>
+            <TransitionGroup component={null}>
+              {isMounted && (
+                <CSSTransition classNames={fade} timeout={timeout}>
+                  <Menu />
+                </CSSTransition>
+              )}
+            </TransitionGroup>
           </>
         )}
       </StyledNavbar>
