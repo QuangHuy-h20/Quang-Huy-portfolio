@@ -78,7 +78,6 @@ const StyledProjectsItem = styled.li`
             border-radius: 5px;
             border: 1px solid rgba(37, 37, 37, .26);
             font-size: var(--fs-sm);
-            
         }
 
         .tech-list{
@@ -89,6 +88,11 @@ const StyledProjectsItem = styled.li`
                 padding: 0 10px 5px 0;
                 font-size:var(--fs-xs);
                 color: var(--gray);
+            }
+
+            @media screen and (max-width:1200px){
+                display:grid;
+                grid-template-columns:1fr;
             }
         }
 
@@ -101,7 +105,6 @@ const StyledProjectsItem = styled.li`
     }
 
     .project-image{
-        height:100%;
         grid-column: 6/-1;
         border: 1px solid var(--light-orange);
         border-radius: 2px;
@@ -119,15 +122,11 @@ const StyledProjectsItem = styled.li`
                     background: rgba(38,40,41,.20);
                     border:none;
                 }
-
-                .tech-list{
-                    display:grid;
-                    grid-template-columns:1fr;
-                }
             }
 
         }
         .project-image{
+            height:100% !important;
             opacity:.2 !important;
             grid-row: 1/-1 !important;
             grid-column:1/-1 !important;
