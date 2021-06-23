@@ -128,7 +128,7 @@ const Header = ({ isHome }) => {
 
 
   const Logo = (
-    <div className="logo" tabIndex="-1">
+    <div className="logo">
       {isHome ? (
         <Link to="/">
           <LogoIcon />
