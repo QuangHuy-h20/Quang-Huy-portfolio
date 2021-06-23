@@ -4,6 +4,7 @@ export { default as Menu } from './menu';
 export { default as Social } from './social';
 export { default as Footer } from './footer';
 export { default as Layout } from './layout';
+export { default as Loader } from './loader';
 
 //Section
 export { default as Hero } from './sections/hero';
