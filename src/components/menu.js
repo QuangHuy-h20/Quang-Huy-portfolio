@@ -31,7 +31,7 @@ const StyledSidebar = styled.div`
     z-index: 8;
     visibility: ${props => (props.open ? 'visible' : 'hidden')};
     transform: translateX(${props => (props.open ? 0 : 100)}vw);
-    transition: var(--transition);
+    transition: all .4s var(--easing);
     }
 
     nav{
