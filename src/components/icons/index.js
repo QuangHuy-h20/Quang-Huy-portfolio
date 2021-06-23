@@ -10,3 +10,4 @@ export { default as Calendar } from './calendar';
 export { default as Code } from './code';
 export { default as External } from './external';
 export { default as Icon } from './icons';
+export { default as LoaderIcon } from './loader';
