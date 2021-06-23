@@ -144,6 +144,7 @@ const Header = ({ isHome }) => {
   const Resume = (
     <a class="btn-resume" target="_blank" href="/quanghuy_resume.pdf">Resume</a>
   );
+  
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <StyledNavbar>
