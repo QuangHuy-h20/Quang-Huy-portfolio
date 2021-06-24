@@ -85,7 +85,8 @@ const StyledMenu = styled.div`
       border-radius: var(--border-radius);
       margin-left:25px;
       &:hover{
-          color: var(--light-orange);
+          background: rgba(255, 146, 100,.47);
+          color: var(orange);
       }
     }
 

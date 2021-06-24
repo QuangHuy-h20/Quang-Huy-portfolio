@@ -17,8 +17,12 @@ const mixins = {
       color: #fff;
       padding: 16px 40px;
       font-size: var(--fs-md);
-      background: var(--orange);
+      border: 1px solid var(--orange);
       border-radius:9999px;
+      transition: var(--transition);
+      &:hover{
+        background: rgba(255, 146, 100,.47);
+      }
     `
 }
 

@@ -28,6 +28,21 @@ const StyledContent = styled.div`
         font-size:var(--fs-md);
         font-style:italic;
         color: var(--pink);
+        position:relative;
+        &:before{
+            content:"";
+            position:absolute;
+            bottom:0;
+            left:0;
+            width:0%;
+            height:2px;
+            background:var(--pink);
+            transition: var(--transition);
+        }
+
+        &:hover:before{
+            width:100%;
+        }
     }
 
     p:nth-child(2){
