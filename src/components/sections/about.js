@@ -116,7 +116,7 @@ const About = () => {
                     </ul>
                 </StyledContent>
                 <StyledImage>
-                    <Lottie options={defaultOptions} height={300} width={300} />
+                    <Lottie options={defaultOptions} />
 
                 </StyledImage>
             </div>

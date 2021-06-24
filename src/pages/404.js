@@ -1,53 +1,68 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Lottie from 'react-lottie';
+import * as astronaut from '@images/lottie/astronaut.json'
+import styled, { ThemeProvider } from 'styled-components'
+import { GlobalStyle, theme } from '@styles';
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+const StyledNotFound = styled.main`
+  padding-top: 0;
+  padding-bottom: 0;
+  .notFound{
+    ${({ theme }) => theme.mixins.flexBetween}    
+    flex-direction:column;
+    text-align:center;
+    h1{
+      margin: 30px 0;
+      font-size: clamp(32px, 10vw, 68px);
+    }
+    h2{
+      color: var(--light-orange);
+      font-size: clamp(22px, 8vw, 48px);
+    }
+    .comeback{
+      ${({ theme }) => theme.mixins.contactButton};
+    }
+  }
+`
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+const StyledImage = styled.div`
+  width:700px;
+  height:500px;
+  @media only screen and (max-width:768px){
+    width:500px;
+  }
+  @media only screen and (max-width:500px){
+    width:300px;
+    height:300px;
+  }
+`
 
 // markup
 const NotFoundPage = () => {
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: astronaut,
+  };
+
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <StyledNotFound>
+          <div className="notFound">
+            <StyledImage>
+              <Lottie options={defaultOptions} />
+            </StyledImage>
+            <h2>404</h2>
+            <h1>Oops, look like you find a wrong place!</h1>
+            <Link className="comeback" to="/">Comeback to me</Link>
+          </div>
+        </StyledNotFound>
+      </ThemeProvider>
+    </>
   )
 }
 
