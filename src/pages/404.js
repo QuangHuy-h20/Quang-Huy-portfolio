@@ -57,7 +57,7 @@ const NotFoundPage = () => {
               <Lottie options={defaultOptions} />
             </StyledImage>
             <h2>404</h2>
-            <h1>Oops, look like you find a wrong place!</h1>
+            <h1>Oops, look like you found a wrong place!</h1>
             <Link className="comeback" to="/">Comeback to me</Link>
           </div>
         </StyledNotFound>
