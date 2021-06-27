@@ -24,10 +24,10 @@ const StyledSidebar = styled.div`
     width: min(75vw, 400px);
     height: 100vh;
     outline: 0;
-    background: rgba(38,40,41,.85);
+    background: rgba(32, 34, 36, .25);
     box-shadow: -8px 9px 19px 0 rgba(0, 0, 0, .45);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur( 15px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 8;
     visibility: ${props => (props.open ? 'visible' : 'hidden')};
     transform: translateX(${props => (props.open ? 0 : 100)}vw);
