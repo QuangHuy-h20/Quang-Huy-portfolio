@@ -92,7 +92,7 @@ const StyledProjectsItem = styled.li`
 
             @media screen and (max-width:1200px){
                 display:grid;
-                grid-template-columns:1fr;
+                grid-template-columns: 2fr 2fr;
             }
         }
 
@@ -109,6 +109,7 @@ const StyledProjectsItem = styled.li`
         border: 1px solid var(--light-orange);
         border-radius: 2px;
     }
+
 
     @media screen and (max-width:768px){
         .project-content{

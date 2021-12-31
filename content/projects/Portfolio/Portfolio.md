@@ -6,8 +6,8 @@ github: 'https://github.com/QuangHuy-h20/Quang-Huy-portfolio'
 external: ''
 tech:
     - Gatsby.js
-    - Styled-components
     - Graphql
+    - Styled-components
 ---
 
 I decided to design and build the portfolio after acquiring specific knowledge about React and effort to avoid using UI frameworks like Bootstrap, Material-UI.
