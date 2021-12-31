@@ -13,4 +13,4 @@ tech:
     - TailwindCSS
 ---
 
-The full-stack project I developed for a specialized project of the university, also learning new technologies.
+The full-stack project I just developed on my own for a specialized project of the university, furthermore learning new technologies.

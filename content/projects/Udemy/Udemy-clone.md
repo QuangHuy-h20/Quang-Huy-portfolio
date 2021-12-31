@@ -7,6 +7,7 @@ external: 'https://udemy-clone.vercel.app/'
 tech:
     - Elearning API
     - React
+    - Redux
     - Styled-components
     - Material-UI
     
